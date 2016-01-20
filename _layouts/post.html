@@ -1,0 +1,134 @@
+---
+layout: post-layout
+---
+
+{% assign minutes = content | number_of_words | divided_by: 180 %}
+{% if minutes == 0 %}
+  {% assign minutes = 1 %}
+{% endif %}
+
+{% assign author = site.data.authors[page.author] %}
+{% assign ad = [1, 2, 3] %}
+
+<section class="thtrm-m-section">
+  <div class="thtrm-l-constraint">
+    <div class="thtrm-m-section__content thtrm-m-section__content--blog-post">
+      <div class="thtrm-l-grid-units">
+        <div class="thtrm-l-grid-u--1-1 thtrm-l-grid-u--medium-3-4">
+          <article class="thtrm-m-article">
+            <h1 class="thtrm-m-article__title">{{ page.title }}</h1>
+            <p class="thtrm-m-article__date">{{ page.date | date: "%b %-d, %Y" }} - {% if page.update_date %}Updated: {{ page.update_date | date: "%b %-d, %Y" }} - {% endif %}{{ minutes }} minute read</p>
+            {{ content }}
+            <footer class="thtrm-m-article__footer">
+              <p>Liked the article and found it useful? How about sharing it with others on <a title="thoughtram on twitter" href="http://twitter.com/thoughtram">twitter</a>? We'd love to get your feedback!</p>
+              
+              <p>We regularly write articles and offer <a href="http://thoughtram.io/git-master-class.html">Git</a> and <a href="http://thoughtram.io/angular-master-class.html">Angular</a> trainings. Subscribe here to get the latest updates about our articles and <strong>trainings in your city</strong>:</p>
+              <!-- Begin MailChimp Signup Form -->
+              <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+              <style type="text/css">
+                #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; margin-top: 1em;}
+                /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                  We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+              </style>
+              <div id="mc_embed_signup">
+              <form style="padding: 0" action="//thoughtram.us8.list-manage.com/subscribe/post?u=dfbb1507fbced5a20d9dc5698&amp;id=731f22cdca" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                  <div id="mc_embed_signup_scroll">
+                <label for="mce-EMAIL"></label>
+                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter email here" required>
+                  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                  <div style="position: absolute; left: -5000px;"><input type="text" name="b_dfbb1507fbced5a20d9dc5698_731f22cdca" tabindex="-1" value=""></div>
+                  <div class="clear"><input type="submit" value="Yes, I want updates!" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                  </div>
+              </form>
+              </div>
+
+              <!--End mc_embed_signup-->
+
+              <p>Oh, and don't forget to subscribe to our <a title="RSS Feed" href="http://feeds.feedburner.com/thoughtram"><i class="fa fa-rss"></i> RSS Feed</a>.</p>
+              {% if page.relatedLinks %}
+                <h3 style="font-weight: normal; margin-top: 1.5em; border-top: 1px solid #DDD">Related articles and links</h3>
+                <ul class="thtrm-list">
+                {% for link in page.relatedLinks %}
+                <li>
+                  <a href="{{ link.url}}" title="{{link.title}}">{{link.title}}</a>
+                </li>
+                {% endfor %}
+                <ul>
+              {% endif %}
+            </footer>
+          </article>
+        </div>
+        <aside class="thtrm-l-grid-u--1-1 thtrm-l-grid-u--medium-1-4">
+          {% if author %}
+          <div class="thtrm-m-article-author">
+            <img alt="Picture of {{author.name}}" src="/css/images/{{ author.gravatar }}.jpeg">
+            <span>Written by <a title="{{author.name}} on twitter" href="{{author.web}}">{{ author.name }}</a></span>
+          </div>
+          {% endif %}
+
+          <!-- <div class="thtrm-m-ad"> -->
+          <!--   <img class="thtrm-m-ad__image thtrm-m-ad__image--small" alt="Angular Logo" src="/images/angularconnect-shield.png"> -->
+          <!--   <h4 class="thtrm-m-ad__title">Meet us at AngularConnect</h4> -->
+          <!--   <p class="thtrm-m-ad__sub-title">We're sponsoring AngularConnect and looking forward to seeing you there!</p> -->
+          <!--   <a class="thtrm-m-ad__btn" href="http://blog.thoughtram.io/announcements/2015/05/11/sponsoring-angularconnect.html" title="AngularConnect Conference">More info</a> -->
+          <!-- </div> -->
+
+          <!-- <div class="thtrm-m-ad"> -->
+          <!--   <img class="thtrm-m-ad__image thtrm-m-ad__image--small" alt="Angular Logo" src="/images/angular2-logo.svg"> -->
+          <!--   <h4 class="thtrm-m-ad__title">Angular 2 articles</h4> -->
+          <!--   <p class="thtrm-m-ad__sub-title">Read our collection of high quality, up to date articles about Angular 2.</p> -->
+          <!--   <a class="thtrm-m-ad__btn" href="/categories/angular2" title="Angular 2 articles">Read more</a> -->
+          <!-- </div> -->
+
+          <div class="thtrm-m-ad">
+            <img class="thtrm-m-ad__image thtrm-m-ad__image--small" alt="Angular Logo" src="/images/angular2-logo.svg">
+            <h4 class="thtrm-m-ad__title">Exploring Angular 2</h4>
+            <p class="thtrm-m-ad__sub-title">Our collection of high quality articles and guides about Angular 2 in one place!</p>
+            <a class="thtrm-m-ad__btn" href="/exploring-angular-2" title="Angular 2 articles">Read more</a>
+          </div>
+
+          <div class="thtrm-m-ad">
+            <img class="thtrm-m-ad__image thtrm-m-ad__image--small" alt="Angular Logo" src="/images/angularjs-shield.png">
+            <h4 class="thtrm-m-ad__title">AngularJS articles</h4>
+            <p class="thtrm-m-ad__sub-title">Read our collection of high quality, up to date articles about AngularJS.</p>
+            <a class="thtrm-m-ad__btn" href="/categories/angular/" title="AngularJS articles">More info</a>
+          </div>
+
+          <div class="thtrm-m-ad">
+            <img class="thtrm-m-ad__image" alt="Rebase book cover" src="/images/rebase-book.png">
+            <h4 class="thtrm-m-ad__title">Rebase {{ ad }}</h4>
+            <p class="thtrm-m-ad__sub-title">The complete guide on rebasing in Git</p>
+            <a class="thtrm-m-ad__btn" href="https://leanpub.com/rebase-the-complete-guide-on-rebasing-in-git" title="Rebase on Leanpub">Learn More</a>
+          </div>
+
+          <!-- <div class="thtrm-m-ad"> -->
+          <!--   <img class="thtrm-m-ad__image thtrm-m-ad__image--small" alt="Angular Logo" src="/images/angularjs-shield.png"> -->
+          <!--   <h4 class="thtrm-m-ad__title">Angular Master Class</h4> -->
+          <!--   <p class="thtrm-m-ad__sub-title">Next public training happens in <strong>Brussels</strong>!</p> -->
+          <!--   <a class="thtrm-m-ad__btn" href="http://thoughtram.io/angular-master-class.html" title="Angular Master Class by thoughtram">More info</a> -->
+          <!-- </div> -->
+
+          <!-- <div class="thtrm-m-ad"> -->
+          <!--   <img class="thtrm-m-ad__image" alt="Git Logo" src="/images/git-logo.png"> -->
+          <!--   <h4 class="thtrm-m-ad__title">Git Master Class</h4> -->
+          <!--   <p class="thtrm-m-ad__sub-title">We offer public workshops and in-house trainings on the Git version control system</p> -->
+          <!--   <a class="thtrm-m-ad__btn" href="http://thoughtram.io/git-master-class.html" title="Git Master Class at by thoughtram">More info</a> -->
+          <!-- </div> -->
+
+          <!-- <div class="thtrm-m-ad"> -->
+          <!--   <h4 class="thtrm-m-ad__title">Meet us at upcoming events!</h4> -->
+          <!--   <p class="thtrm-m-ad__sub-title">We speak at conferences and meetups. Check out where you can find us.</p> -->
+          <!--   <a class="thtrm-m-ad__btn" href="http://thoughtram.io/events.html" title="thoughtram Events">More info</a> -->
+          <!-- </div> -->
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function (doc) {
+  var num = Math.floor(Math.random() * (3 - 0));
+  doc.querySelectorAll('.thtrm-m-ad')[num].classList.add('thtrm-m-ad--visible');
+}(document));
+</script>
